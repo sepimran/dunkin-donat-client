@@ -4,7 +4,12 @@ import DashboardLeftMenu from '../Shared/DashboardLeftMenu/DashboardLeftMenu';
 const AddItem = () => {
     return (
         <div>
-            <DashboardLeftMenu></DashboardLeftMenu>
+            <div className="dashboard-area">
+                <DashboardLeftMenu></DashboardLeftMenu>
+                <div className="dashboard-right-area">
+                    <h1>Right</h1>
+                </div>
+            </div>
         </div>
     );
 };

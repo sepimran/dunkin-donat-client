@@ -547,3 +547,102 @@ section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f
 .error-contact-area button {
   color: #fff;
 }
+
+
+.dashboard-left-menu-area {
+  height: 100vh;
+  background: #F9FAFB;
+  width: 260px;
+  padding: 10px;
+}
+
+.dashboard-left-menu-area  .logo {
+  padding: 10px;
+}
+
+.dashboard-left-menu-area .logo img {
+  max-width: 160px;
+  margin-bottom: 40px;
+}
+
+.dashboard-menu ul li {
+  display: block;
+}
+
+.dashboard-menu {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #E5E7EB;
+  padding-bottom: 30px;
+}
+
+.dashboard-bottom-menu ul li a,
+.dashboard-menu ul li a {
+  padding: 0.5rem;
+  font-weight: 700;
+  color: #575e6c;
+  font-size: 15px;
+  display: block;
+  border-radius: 10px;
+  transition: .3s all;
+}
+
+.dashboard-bottom-menu ul li a:hover,
+.dashboard-menu ul li a:hover {
+  background: #F3F4F6;
+}
+
+.dashboard-bottom-menu ul li a svg,
+.dashboard-menu ul li a svg {
+  margin-right: 9px;
+}
+
+.dashboard-area {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.dashboard-right-area {
+  width: calc(100% - 260px);
+  padding: 20px;
+}
+
+.account-menu-area {
+  position: absolute;
+  bottom: 0;
+  padding-bottom: 20px;
+}
+
+a {}
+
+.account-menu-area button.account-setting-btn {
+  padding: 0.5rem;
+  font-weight: 700;
+  color: #575e6c;
+  font-size: 15px;
+  display: block;
+  border-radius: 10px;
+  transition: .3s all;
+}
+
+.account-menu-area button.account-setting-btn span {
+  height: 45px;
+  width: 45px;
+  background: #F5821F;
+  border-radius: 50%;
+  font-size: 22px;
+  margin-right: 10px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 4px;
+}
+
+.account-menu-area button.account-setting-btn span svg {
+  font-size: 17px;
+  color: #fff;
+}
+
+.account-menu-area button.account-setting-btn:hover {
+  color: #F5821F;
+}
