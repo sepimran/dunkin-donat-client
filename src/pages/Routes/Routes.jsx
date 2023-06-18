@@ -6,6 +6,7 @@ import Foods from '../Foods/Foods';
 import Login from '../Login/Login';
 import Registration from '../Login/Registration';
 import Error from '../Error/Error';
+import AddItem from '../Dashboard/AddItem';
 
 const router = createBrowserRouter([
         {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
                 },
             ]
         },
+        {
+            path: '/dashboard/additem',
+            element: <AddItem></AddItem>
+        }
 
     ]);
 

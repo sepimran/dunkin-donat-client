@@ -3,7 +3,9 @@ import React from 'react';
 const Foods = () => {
     return (
         <div>
-            <h1>Foods</h1>
+             <section className="breadcrumb-area">
+                <h1>All Foods</h1>
+            </section>
         </div>
     );
 };

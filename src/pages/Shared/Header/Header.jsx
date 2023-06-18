@@ -24,7 +24,7 @@ const Header = () => {
                                         <li className='active'><Link to="/">Home</Link></li>
                                         <li><Link to="/about">About</Link></li>
                                         <li><Link to="/foods">All Foods</Link></li>
-                                        <li><Link to="">Contact</Link></li>
+                                        <li><Link to="/404">Contact</Link></li>
                                     </ul>
                                 </nav>
                             </div>

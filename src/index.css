@@ -72,6 +72,10 @@ h1,h2,h3,h4,h5,h6{
   padding-top: 0 !important;
 }
 
+.no-bg{
+  background: transparent !important;
+}
+
 header#header-area {
   padding: 12px 0;
 }
@@ -166,7 +170,7 @@ button.boxed-btn {
 }
 
 button.boxed-btn:hover {
-  background: #231F40;
+  background: #E11383;
 }
 
 footer.footer-area {
@@ -529,4 +533,17 @@ section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f
 .about-content-area ul li h4 {
     margin-bottom: 2px;
     font-size: 18px;
+}
+
+.error-contact-area {
+  text-align: center;
+}
+
+.error-contact-area img {
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.error-contact-area button {
+  color: #fff;
 }
