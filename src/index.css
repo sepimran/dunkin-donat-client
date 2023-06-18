@@ -405,13 +405,14 @@ section.section-padding-area {
 
 
 .form-area {
-    border-radius: 0.5rem;
     padding: 60px;
     background: #fff;
 }
 
 .form-wrapper {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
+    border-radius: 0.5rem;
+    overflow: hidden;
 
 }
 
@@ -489,4 +490,10 @@ section.section-padding-area {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+}
+
+.alternative-link-area a {
+  text-decoration: underline;
+  font-weight: 700;
+  color: #F5821F;
 }

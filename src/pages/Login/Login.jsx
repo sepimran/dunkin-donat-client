@@ -32,7 +32,7 @@ const Login = () => {
                                 </form>
 
                                 <div className="alternative-link-area">
-                                    <p>Have no account? <Link to="/register"> Create one</Link></p>
+                                    <p>Have no account? <Link to="/registration"> Create one</Link></p>
                                     <button className='boxed-btn icon-btn btn-no-bg'> <img src="/google-plus-g.svg" />  Continue with Google</button>
                                     <button className='boxed-btn icon-btn btn-no-bg'> <img src="/github.svg" />   Continue with Github</button>
                                 </div>
