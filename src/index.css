@@ -9,6 +9,7 @@
 body{
   font-family: 'Manrope', sans-serif;
   line-height: 1.7;
+  color: #484747
 }
 
 h1,h2,h3,h4,h5,h6{
@@ -66,6 +67,11 @@ h1,h2,h3,h4,h5,h6{
     padding-left: 0;
     padding-right: 0;
 }
+
+.pt-0{
+  padding-top: 0 !important;
+}
+
 header#header-area {
   padding: 12px 0;
 }
@@ -496,4 +502,31 @@ section.section-padding-area {
   text-decoration: underline;
   font-weight: 700;
   color: #F5821F;
+}
+
+
+section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f7f7, #faf9fa, #fcfcfc, #ffffff);padding: 80px 0;}
+
+.about-content-area ul li {
+    position: relative;
+    padding-left: 85px;
+    min-height: 60px;
+    margin-bottom: 25px;
+}
+
+.about-content-area ul li img {
+    position: absolute;
+    left: 0;
+    max-width: 65px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.about-content-area ul li:last-child {
+    margin: 0;
+}
+
+.about-content-area ul li h4 {
+    margin-bottom: 2px;
+    font-size: 18px;
 }
