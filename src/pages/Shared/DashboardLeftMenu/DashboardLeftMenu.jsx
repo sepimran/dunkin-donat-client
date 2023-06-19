@@ -12,16 +12,16 @@ const DashboardLeftMenu = () => {
 
             <div className="dashboard-menu">
                 <ul>
-                    <li><Link to="/additem"> <FontAwesomeIcon icon={faPlus} /> Add Food</Link></li>
-                    <li><Link to="/foods"><FontAwesomeIcon icon={faEye} /> All Foods</Link></li>
+                    <li><Link to="/dashboard/additem"> <span><FontAwesomeIcon icon={faPlus} /></span> Add Food</Link></li>
+                    <li><Link to="/foods"><span><FontAwesomeIcon icon={faEye} /></span> All Foods</Link></li>
                 </ul>
             </div>
 
             <div className="dashboard-bottom-menu">
                 <ul>
-                    <li><Link to="/"> <FontAwesomeIcon icon={faHome} /> Home</Link></li>
-                    <li><Link to="/about"><FontAwesomeIcon icon={faInfo} />  About</Link></li>
-                    <li><Link to="/404"><FontAwesomeIcon icon={faHeadphones} />  Contact</Link></li>
+                    <li><Link to="/"> <span><FontAwesomeIcon icon={faHome} /></span> Home</Link></li>
+                    <li><Link to="/about"><span><FontAwesomeIcon icon={faInfo} /> </span> About</Link></li>
+                    <li><Link to="/404"><span><FontAwesomeIcon icon={faHeadphones} /></span>  Contact</Link></li>
                 </ul>
             </div>
 

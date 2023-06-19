@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
+    const [isActive , setIsActive] = useState(false);
+
+    const handleToggleClass = () =>{
+        setIsActive(!isActive);
+    }
+
+    const {user} = useContext(AuthContext);
+    console.log(user);
+
     return (
         <div>
             <div className="header-top-area">
@@ -31,11 +41,32 @@ const Header = () => {
                         </div>
                         <div className="col-lg-3">
                             <div className="header-right-menu">
-                                <ul>
-                                    <li><Link to="/login">Login</Link></li>
-                                    <li><Link to="/registration">Sign Up</Link></li>
-                                    
-                                </ul>
+                                {
+                                    user ?  
+                                            <div className='login-user-profile-info'>
+                                                <button onClick={handleToggleClass} className='user-img-btn'><img src="/user.jpeg" alt="" /></button>
+                                                <ul className={isActive ? 'active' : ''} id="user-logout">
+                                                    <li>
+                                                        user 
+                                                        <span>user1@gmail.com</span>
+                                                    </li>
+                                                    <li>
+                                                        <Link to="/dashboard/additem"> Dashboard </Link>
+                                                    </li>
+                                                    <li>
+                                                        <button className='boxed-btn logout-btn'>logout</button>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        : 
+
+                                        <ul>
+                                            <li><Link to="/login">Login</Link></li>
+                                            <li><Link to="/registration">Sign Up</Link></li>
+                                            
+                                        </ul>
+                                }
+                               
                             </div>
                         </div>
                     </div>

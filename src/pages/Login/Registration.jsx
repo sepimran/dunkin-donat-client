@@ -1,8 +1,43 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import signInImage from '/signin-71220807.gif'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
 
 const Registration = () => {
+    const {createUser} = useContext(AuthContext);
+    const [error , setError] = useState('');
+
+    const handleRegister = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const photoUrl = form.url.value;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(name, email ,photoUrl, password);
+
+         //password validation
+         setError('');
+         if(password.length < 6){
+            setError('Password should be at least 6 letter');
+            return;
+        }
+        else if(!/(?=.*[A-Z])/.test(password)){
+            setError('Ensure string has One uppercase letters.');
+            return;
+        }
+        
+        createUser(email,password)
+        .then(result =>{
+            const newUser = result.user;
+            console.log(newUser)
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+    }
+
     return (
         <div>
             <section className="breadcrumb-area">
@@ -15,7 +50,7 @@ const Registration = () => {
                         <div className="col-lg-6 px-0">
                             <div className="form-area">
                                 <h2>Please Signup</h2>
-                                <form>
+                                <form onSubmit={handleRegister}>
                                     <div className="single-form-group">
                                         <label htmlFor="name">Name</label>
                                         <input type="text" name='name' placeholder='Type your name here' className='input input-bordered w-full' required />
@@ -40,6 +75,10 @@ const Registration = () => {
 
                                 <div className="alternative-link-area">
                                     <p>Already have an account ?<Link to="/login"> Login</Link></p>
+
+                                    {
+                                        error && <div className='text-red-600'>{error}</div>
+                                    }
                                 </div>
                             </div>
                         </div>
