@@ -7,7 +7,7 @@ import FoodCard from '../Shared/FoodCard/FoodCard';
 const Home = () => {
     const loadedFoods = useLoaderData();
     const [foods , setFoods] = useState(loadedFoods);
-    console.log(foods);
+
 
     const someFoods = foods.slice(0, 6);
 

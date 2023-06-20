@@ -30,7 +30,8 @@ const router = createBrowserRouter([
                 },
                 {
                     path: '/foods',
-                    element: <Foods></Foods>
+                    element: <Foods></Foods>,
+                    loader: () => fetch('http://localhost:5000/foods')
                 },
                 {
                     path: '/login',
