@@ -15,7 +15,6 @@ const Header = () => {
     }
 
    
-    console.log(user);
 
     return (
         <div>

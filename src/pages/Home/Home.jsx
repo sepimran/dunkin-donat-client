@@ -1,8 +1,16 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser , faHatCowboy , faUserAltSlash , faTrophy} from '@fortawesome/free-solid-svg-icons'
+import { useLoaderData } from 'react-router-dom';
+import FoodCard from '../Shared/FoodCard/FoodCard';
 
 const Home = () => {
+
+    const foods = useLoaderData();
+    console.log(foods);
+
+    const someFoods = foods.slice(0, 6);
+
     return (
         <div>
             <section className="hero-area">
@@ -11,7 +19,7 @@ const Home = () => {
                         <div className="col-lg-6">
                             <div className="hero-content-area">
                                 <h4 className="style-f">
-                                Satisfy Your Cravings
+                                    Satisfy Your Cravings
                                 </h4>
                                 <h1>Delicious Foods With Wonderful Eating</h1>
                                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum fugit minimaet debitis ut distinctio optio.</p>
@@ -31,8 +39,8 @@ const Home = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="section-heading">
-                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold">
+                            <div className="section-heading text-center">
+                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[-6px]">
                                     Daily Offer
                                 </h4>
                                 <h2 className='text-[35px]'>Up To 75% Off For This Day</h2>
@@ -72,12 +80,28 @@ const Home = () => {
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12">
-                            <div className="section-heading">
-                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold">
+                            <div className="section-heading text-center">
+                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[-6px]">
                                     Food Menu
                                 </h4>
-                                <h2 className='text-[35px]'>Popular Delicious Foods</h2>
+                                <h2 className='text-[35px] mb-[50px]'>Popular Delicious Foods</h2>
                             </div>
+                        </div>
+                    </div>
+
+                    <div className="row">
+                        {
+                            someFoods.map(food => 
+                            <FoodCard
+                                key={food._id}
+                                food={food}
+                            >
+
+                            </FoodCard>)
+                        }
+
+                        <div className="col-lg-12 text-center mt-[20px]">
+                            <button className='boxed-btn'>More Food</button>
                         </div>
                     </div>
                 </div>
@@ -118,7 +142,7 @@ const Home = () => {
                             </div>
                         </div>
 
-
+                    
                     </div>
                 </div>
             </section>

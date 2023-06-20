@@ -19,7 +19,7 @@ const AddItem = () => {
         console.log(newFood);
 
         // newFood send to server 
-        fetch('http://localhost:5000/food' , {
+        fetch('http://localhost:5000/foods' , {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
