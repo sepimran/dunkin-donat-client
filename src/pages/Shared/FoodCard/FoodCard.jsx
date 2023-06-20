@@ -3,7 +3,7 @@ import { FaEye , FaEdit , FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const FoodCard = ({food}) => {
+const FoodCard = ({food , foods , setFoods}) => {
     console.log(food);
     const {_id, category,details ,foodPhoto ,name ,price ,quantity , supplier} = food;
 
@@ -27,6 +27,9 @@ const FoodCard = ({food}) => {
             .then(res=> res.json())
             .then(data => {
                 console.log(data);
+                const remainFoods = foods.filter(food => food._id !== _id);
+                setFoods(remainFoods);
+                
                 if(data.deletedCount > 0){
                     Swal.fire(
                     'Deleted!',
@@ -56,7 +59,7 @@ const FoodCard = ({food}) => {
                </div>
 
                <div className="card-button-group">
-                    <button  className='bg-[#D2B48C;]'><FaEye /></button>
+                    <Link to={`/food/${_id}`}><button  className='bg-[#D2B48C;]'><FaEye /></button></Link>
                     <Link to={`/update/${_id}`} ><button className='bg-[#3C393B;]'><FaEdit /></button></Link>
                     <button onClick={()=> handleItemDelete(_id)} className='bg-[#EA4744;]'><FaTrash /></button>
                </div>

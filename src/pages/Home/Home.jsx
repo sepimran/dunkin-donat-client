@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser , faHatCowboy , faUserAltSlash , faTrophy} from '@fortawesome/free-solid-svg-icons'
 import { Link, useLoaderData } from 'react-router-dom';
 import FoodCard from '../Shared/FoodCard/FoodCard';
 
 const Home = () => {
-
-    const foods = useLoaderData();
+    const loadedFoods = useLoaderData();
+    const [foods , setFoods] = useState(loadedFoods);
     console.log(foods);
 
     const someFoods = foods.slice(0, 6);
@@ -95,6 +95,8 @@ const Home = () => {
                             <FoodCard
                                 key={food._id}
                                 food={food}
+                                foods={foods}
+                                setFoods={setFoods}
                             >
 
                             </FoodCard>)

@@ -691,8 +691,15 @@ section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f
     margin-bottom: 15px;
 }
 
+.dashboard-form-wrapper .single-form-item textarea,
 .dashboard-form-wrapper .single-form-item input {
     border: 1px solid #dfe0e1;
+}
+
+.dashboard-form-wrapper .single-form-item textarea {
+  height: 150px;
+  padding-top: 12px;
+  border-bottom: 12px;
 }
 
 .dashboard-form-wrapper .single-form-item button.boxed-btn {
@@ -862,4 +869,53 @@ section.food-menu-area .col-lg-6 {
 
 .single-food-card .card-button-group button:hover{
   background-color: #E11383;
+}
+
+
+
+.col-lg-10 {
+  width: 70%;
+}
+
+.food-image img {
+  max-width: 550px;
+  width: 100%;
+}
+
+.food-image {
+  max-width: 500px;
+  border-radius: .5rem;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+
+.food-details table {
+  width: 100%;
+  border: 1px solid #d1cfc8;
+  margin-bottom: 30px;
+}
+
+.food-details table th {
+  background: #e5e4e1;
+  color: #231F40;
+}
+
+.food-details table th , .food-details table td {
+  padding: 8px 20px;
+  text-align: left;
+}
+
+table  tr:nth-child(odd) {
+ background: #E5E4E1;
+}
+
+
+.food-details tr {
+  border-bottom: 1px solid #d1cfc8;
+}
+
+.food-details tr td,.food-details tr th {
+  border-right: 1px solid #d1cfc8;
+  color: #000;
 }

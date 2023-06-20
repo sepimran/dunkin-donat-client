@@ -8,6 +8,7 @@ import Registration from '../Login/Registration';
 import Error from '../Error/Error';
 import AddItem from '../Dashboard/AddItem';
 import UpdateItem from '../Dashboard/UpdateItem';
+import SingleFoodDetails from '../SingleFoodDetails/SingleFoodDetails';
 
 const router = createBrowserRouter([
         {
@@ -40,6 +41,11 @@ const router = createBrowserRouter([
                     element: <Registration></Registration>
                 },
                 {
+                    path: '/food/:id',
+                    element: <SingleFoodDetails></SingleFoodDetails>,
+                    loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
+                },
+                {
                     path: '*',
                     element: <Error></Error>
                 },
@@ -54,6 +60,7 @@ const router = createBrowserRouter([
             element: <UpdateItem></UpdateItem>,
             loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
         }
+        
 
     ]);
 
