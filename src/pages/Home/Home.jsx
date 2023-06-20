@@ -22,7 +22,7 @@ const Home = () => {
                                     Satisfy Your Cravings
                                 </h4>
                                 <h1>Delicious Foods With Wonderful Eating</h1>
-                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ipsum fugit minimaet debitis ut distinctio optio.</p>
+                                <p>Progressively simplify effective e-toilers and process-centric methods of empowerment. Quickly pontificate parallel.</p>
                                 <button className='boxed-btn'>Learn More</button>
                             </div>
                         </div>
@@ -40,7 +40,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-heading text-center">
-                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[-6px]">
+                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[6px]">
                                     Daily Offer
                                 </h4>
                                 <h2 className='text-[35px]'>Up To 75% Off For This Day</h2>
@@ -81,7 +81,7 @@ const Home = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <div className="section-heading text-center">
-                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[-6px]">
+                                <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[6px]">
                                     Food Menu
                                 </h4>
                                 <h2 className='text-[35px] mb-[50px]'>Popular Delicious Foods</h2>
@@ -113,7 +113,7 @@ const Home = () => {
                 <div className="container">
                     <div className="row">
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span>
@@ -122,21 +122,21 @@ const Home = () => {
                                 <p>Customer Server</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faHatCowboy} /></span>
                                 <p>Experience Chef</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faUserAltSlash} /></span>
                                 <p>Happy Customer</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-md-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faTrophy} /></span>

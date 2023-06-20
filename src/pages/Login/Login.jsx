@@ -1,14 +1,16 @@
 import React, { useContext, useState } from 'react';
 import signInImage from '/signin-71220807.gif'
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
 import Swal from 'sweetalert2';
 
 
 const Login = () => {
-    const {signIn} = useContext(AuthContext);
+    const {signIn , googleSignIn} = useContext(AuthContext);
     const [error , setError] = useState('');
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/' ;
 
     const handleLogin = (event) =>{
         event.preventDefault();
@@ -31,7 +33,25 @@ const Login = () => {
                 confirmButtonText: 'Okay'
             })
 
-            navigate('/')
+    const from = location.state?.from?.pathname || '/' ;
+            navigate(from , {replace: true})
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+    }
+
+    //google sign in
+    const handleGoogleSignIn = () => {
+        googleSignIn()
+        .then(result =>{
+            Swal.fire({
+                title: 'Success!',
+                text: 'Login Successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            })
+            navigate('/');
         })
         .catch(error =>{
             setError(error.message)
@@ -47,7 +67,7 @@ const Login = () => {
             <section className="section-padding-area">
                 <div className="container">
                     <div className="row form-wrapper">
-                        <div className="col-lg-6 px-0">
+                        <div className="col-lg-12 px-0">
                             <div className="form-area">
                                 <h2>Please login to your account</h2>
                                 <form onSubmit={handleLogin}>
@@ -67,18 +87,12 @@ const Login = () => {
 
                                 <div className="alternative-link-area">
                                     <p>Have no account? <Link to="/registration"> Create one</Link></p>
-                                    <button className='boxed-btn icon-btn btn-no-bg'> <img src="/google-plus-g.svg" />  Continue with Google</button>
-                                    <button className='boxed-btn icon-btn btn-no-bg'> <img src="/github.svg" />   Continue with Github</button>
+                                    <button onClick={handleGoogleSignIn} className='boxed-btn icon-btn btn-no-bg'> <img src="/google-plus-g.svg" />  Continue with Google</button>
 
                                     {
                                         error && <div className='text-red-600'>{error}</div>
                                     }
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 px-0">
-                            <div className="login-img">
-                                <img src={signInImage} alt="" />
                             </div>
                         </div>
                     </div>

@@ -20,10 +20,10 @@ const About = () => {
                         <div className="col-lg-6">
                             <div className="about-content-area">
                                 <div className="section-heading">
-                                    <h4 className="style-f text-[#FF7C08] text-[24px] font-bold">
+                                    <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[6px]">
                                         Daily Offer
                                     </h4>
-                                    <h2 className='text-[35px]'>Helathy Foods Provider</h2>
+                                    <h2 className='text-[35px] mb-[15px]'>Helathy Foods Provider</h2>
                                     <p>PlayGuru is your gateway to the enchanting world of music. Our music school is committed to providing top-notch instruction, personalized guidance, and a nurturing learning environment.</p>
                                 </div>
 
@@ -53,14 +53,14 @@ const About = () => {
 
             <section className="about-us-area pt-0">
                 <div className="container">
-                    <div className="row align-items-center">
+                    <div className="row align-items-center row-reverce-mobile">
                         <div className="col-lg-6">
                             <div className="about-content-area">
                                 <div className="section-heading">
-                                    <h4 className="style-f text-[#FF7C08] text-[24px] font-bold">
+                                    <h4 className="style-f text-[#FF7C08] text-[24px] font-bold mb-[6px]">
                                         Why Choose Us
                                     </h4>
-                                    <h2 className='text-[35px]'>Why We Are The Best</h2>
+                                    <h2 className='text-[35px] mb-[15px]'>Why We Are The Best</h2>
                                     <p>PlayGuru is your gateway to the enchanting world of music. Our music school is committed to providing top-notch instruction, personalized guidance, and a nurturing learning environment.</p>
                                 </div>
 
@@ -96,7 +96,7 @@ const About = () => {
                 <div className="container">
                     <div className="row">
 
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-lg-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span>
@@ -105,21 +105,21 @@ const About = () => {
                                 <p>Customer Server</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-lg-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faHatCowboy} /></span>
                                 <p>Experience Chef</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-lg-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faUserAltSlash} /></span>
                                 <p>Happy Customer</p>
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-3 col-lg-6">
                             <div className="single-counter-item">
                                 <h3 className='counter'>85,000+</h3>
                                 <span><FontAwesomeIcon icon={faTrophy} /></span>

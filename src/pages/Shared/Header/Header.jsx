@@ -1,13 +1,18 @@
 import React, { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
+import { OverlayTrigger, Spinner, Tooltip } from 'react-bootstrap';
 
 const Header = () => {
-    const {user ,logOut} = useContext(AuthContext);
+    const {user ,logOut ,loading} = useContext(AuthContext);
     const [isActive , setIsActive] = useState(false);
     
     const handleToggleClass = () =>{
         setIsActive(!isActive);
+    }
+
+    if(loading){
+        return <div className='loader'><Spinner animation="border" variant="secondary" /></div>
     }
 
     const handleLogOut = () =>{
@@ -53,7 +58,14 @@ const Header = () => {
                                 {
                                     user ?  
                                             <div className='login-user-profile-info'>
-                                                <button onClick={handleToggleClass} className='user-img-btn'><img src={user?.photoURL} /></button>
+                                                <OverlayTrigger 
+                                                    placement="left"
+                                                    overlay={<Tooltip>{user?.displayName}</Tooltip>}
+                                                >
+                                                    <button onClick={handleToggleClass} className='user-img-btn'><img src={user?.photoURL} /></button>
+                                                </OverlayTrigger>
+
+                                                
                                                 <ul className={isActive ? 'active' : ''} id="user-logout">
                                                     <li>
                                                         {user?.displayName} 

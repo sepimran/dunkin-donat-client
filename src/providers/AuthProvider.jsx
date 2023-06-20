@@ -1,38 +1,53 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import app from '../firebase/firebase.config';
 
 export const AuthContext = createContext(null);
+
 const auth = getAuth(app);
+
+const googleAuthProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({children}) => {
     const [user , setUser] = useState(null);
+    const [loading , setLoading] = useState(true);
 
     const createUser = (email ,password) =>{
+        setLoading(true);
         return createUserWithEmailAndPassword(auth,email,password);
     }
 
     const signIn = (email ,password) =>{
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email,password);
     }
 
     const logOut = () =>{
-        return signOut(auth);
+        setLoading(true);
+         signOut(auth);
+    }
+
+    // google sign in 
+
+    const googleSignIn = () => {
+        setLoading(true);
+        return signInWithPopup(auth, googleAuthProvider);
     }
 
 
     // check user have or not with firebase
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-            console.log('logged User' , loggedUser);
+        const unSubscriber = onAuthStateChanged(auth , loggedUser => {
+            console.log('Logged in user', loggedUser);
             setUser(loggedUser);
+            setLoading(false);
+            
         })
 
         return () =>{
-            unsubscribe();
+            unSubscriber();
         }
-
-    },[])
+    }, [])
     
 
     const authInfo = {
@@ -40,6 +55,8 @@ const AuthProvider = ({children}) => {
         createUser,
         signIn, 
         logOut,
+        googleSignIn,
+        loading,
     }
 
     return (

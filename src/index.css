@@ -2,23 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
-@import 'bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Rokkitt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 
 @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Manrope:wght@200;300;400;500;600;700&family=Oleo+Script:wght@400;700&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap');
 
 body{
-  font-family: 'Manrope', sans-serif;
-  line-height: 1.7;
-  color: #484747
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: #484747;
+  font-size: 16px;
 }
 
 h1,h2,h3,h4,h5,h6{
   font-family: 'Barlow', sans-serif;
   text-transform: math-auto;
   color: #231f40;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 .style-f{
@@ -29,11 +32,6 @@ h1,h2,h3,h4,h5,h6{
   margin: 0 auto;
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
-}
 
 .align-items-center{
   align-items: center;
@@ -42,7 +40,7 @@ h1,h2,h3,h4,h5,h6{
 .justify-content-between{
   justify-content: space-between;
 }
-.col-lg-12{
+/* .col-lg-12{
   width: 100%;
   padding: 0 15px;
 }
@@ -72,6 +70,17 @@ h1,h2,h3,h4,h5,h6{
 
 .pt-0{
   padding-top: 0 !important;
+} */
+
+
+.navigation-area ul {
+  padding: 0 !important;
+  margin: 0 !important;
+  list-style: none;
+}
+
+a {
+  text-decoration: none !important;
 }
 
 .no-bg{
@@ -139,6 +148,8 @@ section.hero-area::after {
 
 .hero-content-area {
   color: #fff;
+  font-size: 20px;
+  line-height: 1.6;
 }
 
 .hero-content-area  h4.style-f {
@@ -165,9 +176,9 @@ button.boxed-btn {
   color: #fff;
   padding: 16px 32px;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 14px;
-  font-family: 'Barlow', sans-serif !important;
+  font-family: 'Roboto', sans-serif;
   transition: .3s all;
   border-radius: 5px;
 }
@@ -238,7 +249,8 @@ section.promo-area {
 }
 
 .single-promo-item h3 {
-  margin-bottom: 7px;
+  margin-bottom: 10px;
+  font-size: 20px;
 }
 
 .section-heading {
@@ -276,6 +288,7 @@ section.counter-item-area {
   background-size: cover;
   background-position: center;
   padding: 90px 0;
+  overflow: hidden;
 }
 
 .single-counter-item {
@@ -422,12 +435,15 @@ section.section-padding-area {
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / .1), 0 4px 6px -4px rgb(0 0 0 / .1);
     border-radius: 0.5rem;
     overflow: hidden;
+    max-width: 600px;
+    margin: 0 auto;
 
 }
 
 .form-area h2 {
     font-size: 22px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .form-area .single-form-group{
@@ -490,6 +506,7 @@ section.section-padding-area {
 
 .alternative-link-area button {
   margin-bottom: 15px;
+  color: #000
 }
 
 .login-img {
@@ -530,8 +547,8 @@ section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f
 }
 
 .about-content-area ul li h4 {
-    margin-bottom: 2px;
-    font-size: 18px;
+    margin-bottom: 5px;
+    font-size: 20px;
 }
 
 .error-contact-area {
@@ -553,6 +570,8 @@ section.about-us-area {background-image: linear-gradient(to right, #f4f4f5, #f7f
   background: #F9FAFB;
   width: 260px;
   padding: 10px;
+  position: sticky;
+  top: 0;
 }
 
 .dashboard-left-menu-area  .logo {
@@ -919,3 +938,138 @@ table  tr:nth-child(odd) {
   border-right: 1px solid #d1cfc8;
   color: #000;
 }
+
+.d-none {
+  display: none;
+}
+
+@media only screen and (max-width: 980px) {
+    .hero-img {
+        display: none;
+    }
+    
+    .hero-content-area {
+        text-align: center;
+    }
+    
+    .hero-content-area h1 {
+        font-size: 32px;
+    }
+    
+    .single-promo-item {
+        max-width: 450px;
+        margin: 0 auto;
+        margin-bottom: 30px;
+    }
+    
+    section.promo-area {
+        padding-top: 50px;
+        padding-bottom: 40px;
+    }
+    
+    section.food-menu-area {
+        padding-top: 60px;
+    }
+    
+    .single-food-card {
+        max-width: 550px;
+        margin: 0 auto;
+    }
+
+    .single-counter-item {
+        margin-bottom: 60px;
+    }
+    
+    section.counter-item-area {
+        padding-bottom: 50px;
+    }
+
+    section.breadcrumb-area h1 {
+        font-size: 36px;
+    }
+    
+    .section-heading h2 {
+        font-size: 28px;
+    }
+
+    section.about-us-area .container {
+        max-width: 550px;
+    }
+    
+    section.about-us-area .container .about-us-img {
+        margin-bottom: 25px;
+    }
+
+    .row-reverce-mobile {
+        flex-direction: column-reverse;
+    }
+
+    .dashboard-left-menu-area {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+    
+    .account-menu-area {
+        right: 25px;
+    }
+    
+    .dashboard-right-area {
+        width: 100%;
+    }
+    
+
+}
+
+
+@media only screen and (max-width: 768px){
+    .food-form-area {
+        padding: 20px 20px;
+    }
+
+    header#header-area .col-lg-3:nth-child(1) {
+        order: 1;
+        width: 50%;
+    }
+    
+    header#header-area .col-lg-3:nth-child(3) {
+        order: 2;
+        width: 50%;
+    }
+    
+    header#header-area .col-lg-6 {
+        order: 3;
+        margin-top: 20px;
+        padding-bottom: 10px;
+    }
+
+    .navigation-area ul li a {
+        padding: 8px 14px;
+    }
+
+    .single-food-card .card-image {
+        width: 100%;
+    }
+    
+    .single-food-card .card-image img {
+        width: 100%;
+    }
+    
+    .single-food-card .food-card-content {
+        width: 100%;
+        padding: 0;
+        margin-top: 20px;
+    }
+    
+    .single-food-card .card-button-group {
+        width: 100%;
+    }
+    
+    .single-food-card .card-button-group button {
+        margin: 0 5px;
+        margin-bottom: 10px;
+    }
+}
+
+
+

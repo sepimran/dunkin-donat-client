@@ -57,7 +57,7 @@ const UpdateItem = ({params}) => {
                         <div className="dashboard-form-wrapper">
                             <h1>Update Food </h1>
                            
-                            <form onSubmit={handleUpdateFood} className='food-row'>
+                            <form onSubmit={handleUpdateFood} className='food-row row'>
                                 <div className="single-form-item col-lg-6">
                                     <label htmlFor="name">Food Name</label>
                                     <input type="text" name='name' placeholder='Enter food name' defaultValue={name} className='input input-bordered w-full' required/>

@@ -51,7 +51,7 @@ const AddItem = () => {
                         <div className="dashboard-form-wrapper">
                             <h1>Add Food Item</h1>
                            
-                            <form onSubmit={handleAddFood} className='food-row'>
+                            <form onSubmit={handleAddFood} className='food-row row'>
                                 <div className="single-form-item col-lg-6">
                                     <label htmlFor="name">Food Name</label>
                                     <input type="text" name='name' placeholder='Enter food name' className='input input-bordered w-full' required/>

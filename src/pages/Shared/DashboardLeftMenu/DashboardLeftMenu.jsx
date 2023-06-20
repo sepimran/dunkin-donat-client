@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus , faEye , faHome , faInfo ,faHeadphones ,faUser} from '@fortawesome/free-solid-svg-icons'
+import { FaEye, FaSignOutAlt } from 'react-icons/fa';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const DashboardLeftMenu = () => {
+    const {logOut} = useContext(AuthContext);
+
+    const handleLogOut = () =>{
+        logOut();
+    }
+
+
     return (
         <div className='dashboard-left-menu-area'>
             <div className="logo">
@@ -26,7 +35,7 @@ const DashboardLeftMenu = () => {
             </div>
 
             <div className="account-menu-area">
-                <Link><button className='account-setting-btn'><span><FontAwesomeIcon icon={faUser} /></span> My Account</button> </Link>
+                <Link><button onClick={handleLogOut} className='account-setting-btn'><span><FaSignOutAlt /></span>Logout</button> </Link>
             </div>
         </div>
     );

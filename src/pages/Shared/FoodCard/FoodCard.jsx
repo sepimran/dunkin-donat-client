@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import { FaEye , FaEdit , FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../providers/AuthProvider';
 
 const FoodCard = ({food , foods , setFoods}) => {
+    const {user} = useContext(AuthContext);
     const {_id, category,details ,foodPhoto ,name ,price ,quantity , supplier} = food;
 
     const handleItemDelete = (_id) => {
@@ -59,8 +61,10 @@ const FoodCard = ({food , foods , setFoods}) => {
 
                <div className="card-button-group">
                     <Link to={`/food/${_id}`}><button  className='bg-[#D2B48C;]'><FaEye /></button></Link>
-                    <Link to={`/update/${_id}`} ><button className='bg-[#3C393B;]'><FaEdit /></button></Link>
-                    <button onClick={()=> handleItemDelete(_id)} className='bg-[#EA4744;]'><FaTrash /></button>
+                    <Link to={`/update/${_id}`} className={user ? 'd-block' : 'd-none'}><button className='bg-[#3C393B;]'><FaEdit /></button></Link>
+                    <span className={user ? 'd-block' : 'd-none'}>
+                        <button onClick={()=> handleItemDelete(_id)} className='bg-[#EA4744;]'><FaTrash /></button>
+                    </span>
                </div>
             </div>
         </div>

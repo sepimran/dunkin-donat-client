@@ -7,13 +7,13 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyBYGjq3uG75FmQg8ljprf49EiCTlJKCTc4",
-  authDomain: "dunkin-donat-client.firebaseapp.com",
-  projectId: "dunkin-donat-client",
-  storageBucket: "dunkin-donat-client.appspot.com",
-  messagingSenderId: "611030898283",
-  appId: "1:611030898283:web:d45874547b28a250c4032e",
-  measurementId: "G-L984BNSX8R"
+  apiKey:  import.meta.env.VITE_apiKey,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
+  measurementId: import.meta.env.VITE_measurementId
 };
 
 // Initialize Firebase

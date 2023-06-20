@@ -69,7 +69,7 @@ const Registration = () => {
             <section className="section-padding-area">
                 <div className="container">
                     <div className="row form-wrapper">
-                        <div className="col-lg-6 px-0">
+                        <div className="col-lg-12 px-0">
                             <div className="form-area">
                                 <h2>Please Signup</h2>
                                 <form onSubmit={handleRegister}>
@@ -102,11 +102,6 @@ const Registration = () => {
                                         error && <div className='text-red-600'>{error}</div>
                                     }
                                 </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 px-0">
-                            <div className="login-img">
-                                <img src={signInImage} alt="" />
                             </div>
                         </div>
                     </div>
