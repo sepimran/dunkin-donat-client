@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const FoodCard = ({food , foods , setFoods}) => {
-    console.log(food);
     const {_id, category,details ,foodPhoto ,name ,price ,quantity , supplier} = food;
 
     const handleItemDelete = (_id) => {
@@ -29,7 +28,7 @@ const FoodCard = ({food , foods , setFoods}) => {
                 console.log(data);
                 const remainFoods = foods.filter(food => food._id !== _id);
                 setFoods(remainFoods);
-                
+
                 if(data.deletedCount > 0){
                     Swal.fire(
                     'Deleted!',

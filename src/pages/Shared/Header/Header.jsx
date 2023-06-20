@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
@@ -18,9 +18,6 @@ const Header = () => {
 
     return (
         <div>
-            <div className="header-top-area">
-
-            </div>
             <header className='header-area' id='header-area'>
                 <div className="container">
                     <div className="row align-items-center">
@@ -35,10 +32,18 @@ const Header = () => {
                             <div className="navigation-area">
                                 <nav>                    
                                     <ul>
-                                        <li className='active'><Link to="/">Home</Link></li>
-                                        <li><Link to="/about">About</Link></li>
-                                        <li><Link to="/foods">All Foods</Link></li>
-                                        <li><Link to="/404">Contact</Link></li>
+                                        <li>
+                                            <NavLink to='/' activeClassName="active">Home</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to='/about' activeClassName="active">About</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to='/foods' activeClassName="active">All Foods</NavLink>
+                                        </li>
+                                        <li>
+                                            <NavLink to='/404' activeClassName="active">Contact</NavLink>
+                                        </li>
                                     </ul>
                                 </nav>
                             </div>

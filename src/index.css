@@ -99,7 +99,7 @@ header#header-area {
 
 }
 
-.navigation-area ul li.active a {
+.navigation-area ul li a.active {
     background: #F5821F;
     color: #fff;
     border-radius: 10px;
