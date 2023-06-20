@@ -1,7 +1,45 @@
 import React from 'react';
 import DashboardLeftMenu from '../Shared/DashboardLeftMenu/DashboardLeftMenu';
+import Swal from 'sweetalert2';
 
 const AddItem = () => {
+
+    const handleAddFood = event => {
+        event.preventDefault();
+        const form = event.target;
+        const name = form.name.value;
+        const quantity = form.quantity.value;
+        const supplier = form.supplier.value;
+        const price = form.price.value;
+        const category = form.category.value;
+        const details = form.details.value;
+        const foodPhoto = form.photo.value;
+
+        const newFood = {name , quantity , supplier , price , category , details , foodPhoto}
+        console.log(newFood);
+
+        // newFood send to server 
+        fetch('http://localhost:5000/food' , {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(newFood)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            Swal.fire({
+                title: 'Success!',
+                text: 'Food Item Added',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            })
+            form.reset();
+        })
+
+    }
+
     return (
         <div>
             <div className="dashboard-area">
@@ -13,9 +51,9 @@ const AddItem = () => {
                         <div className="dashboard-form-wrapper">
                             <h1>Add Food Item</h1>
                            
-                            <form className='food-row'>
+                            <form onSubmit={handleAddFood} className='food-row'>
                                 <div className="single-form-item col-lg-6">
-                                    <label htmlFor="name">Name</label>
+                                    <label htmlFor="name">Food Name</label>
                                     <input type="text" name='name' placeholder='Enter food name' className='input input-bordered w-full' required/>
                                 </div>
                                 <div className="single-form-item col-lg-6">
@@ -32,16 +70,17 @@ const AddItem = () => {
                                 </div>
                                 <div className="single-form-item col-lg-6">
                                     <label htmlFor="category">Category</label>
-                                    <input type="number" name='category' placeholder='Enter food category' className='input input-bordered w-full' required/>
+                                    <input type="text" name='category' placeholder='Enter food category' className='input input-bordered w-full' required/>
                                 </div>
                                 <div className="single-form-item col-lg-6">
-                                    <label htmlFor="details">Details</label>
-                                    <input type="number" name='details' placeholder='Enter food details' className='input input-bordered w-full' required/>
+                                    <label htmlFor="photo">Photo</label>
+                                    <input type="url" name='photo' placeholder='Enter photo URL' className='input input-bordered w-full' required/>
                                 </div>
                                 <div className="single-form-item col-lg-12">
-                                    <label htmlFor="photo">Photo</label>
-                                    <input type="number" name='photo' placeholder='Enter photo URL' className='input input-bordered w-full' required/>
+                                    <label htmlFor="details">Details</label>
+                                    <textarea name="details" id="" cols="30" rows="10" placeholder='Enter food details' className='input input-bordered w-full' required></textarea>
                                 </div>
+                               
 
                                 <div className="single-form-item col-lg-12">
                                 <button className='boxed-btn'>Add Item</button>

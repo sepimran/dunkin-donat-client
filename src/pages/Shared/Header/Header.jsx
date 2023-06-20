@@ -3,13 +3,18 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../providers/AuthProvider';
 
 const Header = () => {
+    const {user ,logOut} = useContext(AuthContext);
     const [isActive , setIsActive] = useState(false);
-
+    
     const handleToggleClass = () =>{
         setIsActive(!isActive);
     }
 
-    const {user} = useContext(AuthContext);
+    const handleLogOut = () =>{
+        logOut();
+    }
+
+   
     console.log(user);
 
     return (
@@ -44,17 +49,17 @@ const Header = () => {
                                 {
                                     user ?  
                                             <div className='login-user-profile-info'>
-                                                <button onClick={handleToggleClass} className='user-img-btn'><img src="/user.jpeg" alt="" /></button>
+                                                <button onClick={handleToggleClass} className='user-img-btn'><img src={user?.photoURL} /></button>
                                                 <ul className={isActive ? 'active' : ''} id="user-logout">
                                                     <li>
-                                                        user 
-                                                        <span>user1@gmail.com</span>
+                                                        {user?.displayName} 
+                                                        <span>{user?.email}</span>
                                                     </li>
                                                     <li>
                                                         <Link to="/dashboard/additem"> Dashboard </Link>
                                                     </li>
                                                     <li>
-                                                        <button className='boxed-btn logout-btn'>logout</button>
+                                                        <button onClick={handleLogOut} className='boxed-btn logout-btn'>logout</button>
                                                     </li>
                                                 </ul>
                                             </div>

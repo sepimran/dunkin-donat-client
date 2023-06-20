@@ -1,11 +1,15 @@
 import React, { useContext, useState } from 'react';
 import signInImage from '/signin-71220807.gif'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
+import { updateProfile } from 'firebase/auth';
+
 
 const Registration = () => {
     const {createUser} = useContext(AuthContext);
     const [error , setError] = useState('');
+    const navigate = useNavigate();
 
     const handleRegister = (event) =>{
         event.preventDefault();
@@ -31,7 +35,25 @@ const Registration = () => {
         createUser(email,password)
         .then(result =>{
             const newUser = result.user;
-            console.log(newUser)
+            console.log(newUser);
+            
+            updateProfile(newUser, {
+                displayName: name,
+                photoURL: photoUrl
+            }).then(() =>{
+                console.log('Update profile');
+            }).catch(error => {
+                setError(error.message)
+            })
+
+            Swal.fire({
+                title: 'Success!',
+                text: 'Account Register Successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              })
+            
+              navigate('/')
         })
         .catch(error =>{
             setError(error.message)
@@ -68,7 +90,7 @@ const Registration = () => {
                                         <input type="Password" name='password' placeholder='Type your password here' className='input input-bordered w-full' required />
                                     </div>
                                     <div className="single-form-group">
-                                        <input type="submit" name='submit' value="Login" />
+                                        <input type="submit" name='submit' value="Register" />
                                     </div>
                                     
                                 </form>

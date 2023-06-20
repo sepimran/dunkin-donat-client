@@ -1,9 +1,43 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
 import signInImage from '/signin-71220807.gif'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../providers/AuthProvider';
+import Swal from 'sweetalert2';
 
 
 const Login = () => {
+    const {signIn} = useContext(AuthContext);
+    const [error , setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleLogin = (event) =>{
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+
+        console.log(email , password);
+
+   
+        
+        signIn(email,password)
+        .then(result =>{
+            const newUser = result.user;
+            console.log(newUser);
+            Swal.fire({
+                title: 'Success!',
+                text: 'Login Successfully',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+            })
+
+            navigate('/')
+        })
+        .catch(error =>{
+            setError(error.message)
+        })
+    }
+
     return (
         <div>
             <section className="breadcrumb-area">
@@ -16,7 +50,7 @@ const Login = () => {
                         <div className="col-lg-6 px-0">
                             <div className="form-area">
                                 <h2>Please login to your account</h2>
-                                <form>
+                                <form onSubmit={handleLogin}>
                                     <div className="single-form-group">
                                         <label htmlFor="email">Email</label>
                                         <input type="email" name='email' placeholder='Type your email here' className='input input-bordered w-full' required />
@@ -35,6 +69,10 @@ const Login = () => {
                                     <p>Have no account? <Link to="/registration"> Create one</Link></p>
                                     <button className='boxed-btn icon-btn btn-no-bg'> <img src="/google-plus-g.svg" />  Continue with Google</button>
                                     <button className='boxed-btn icon-btn btn-no-bg'> <img src="/github.svg" />   Continue with Github</button>
+
+                                    {
+                                        error && <div className='text-red-600'>{error}</div>
+                                    }
                                 </div>
                             </div>
                         </div>
