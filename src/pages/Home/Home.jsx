@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser , faHatCowboy , faUserAltSlash , faTrophy} from '@fortawesome/free-solid-svg-icons'
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import FoodCard from '../Shared/FoodCard/FoodCard';
 
 const Home = () => {
@@ -101,7 +101,7 @@ const Home = () => {
                         }
 
                         <div className="col-lg-12 text-center mt-[20px]">
-                            <button className='boxed-btn'>More Food</button>
+                            <Link to="/foods"><button className='boxed-btn'>More Food</button></Link>
                         </div>
                     </div>
                 </div>

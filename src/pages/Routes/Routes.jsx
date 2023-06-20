@@ -7,6 +7,7 @@ import Login from '../Login/Login';
 import Registration from '../Login/Registration';
 import Error from '../Error/Error';
 import AddItem from '../Dashboard/AddItem';
+import UpdateItem from '../Dashboard/UpdateItem';
 
 const router = createBrowserRouter([
         {
@@ -47,6 +48,11 @@ const router = createBrowserRouter([
         {
             path: '/dashboard/additem',
             element: <AddItem></AddItem>
+        },
+        {
+            path: '/update/:id',
+            element: <UpdateItem></UpdateItem>,
+            loader: ({params}) => fetch(`http://localhost:5000/food/${params.id}`)
         }
 
     ]);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaEye , FaEdit , FaTrash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const FoodCard = ({food}) => {
@@ -56,7 +57,7 @@ const FoodCard = ({food}) => {
 
                <div className="card-button-group">
                     <button  className='bg-[#D2B48C;]'><FaEye /></button>
-                    <button className='bg-[#3C393B;]'><FaEdit /></button>
+                    <Link to={`/update/${_id}`} ><button className='bg-[#3C393B;]'><FaEdit /></button></Link>
                     <button onClick={()=> handleItemDelete(_id)} className='bg-[#EA4744;]'><FaTrash /></button>
                </div>
             </div>
